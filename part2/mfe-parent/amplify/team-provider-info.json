@@ -10,6 +10,11 @@
       "StackName": "amplify-mfeparent-dev-165200",
       "StackId": "arn:aws:cloudformation:eu-west-1:555485882223:stack/amplify-mfeparent-dev-165200/269bc1c0-8fd5-11eb-8045-020629eef10b",
       "AmplifyAppId": "d3mzoe65ht8e40"
+    },
+    "categories": {
+      "auth": {
+        "mfeparent71e86a8b": {}
+      }
     }
   }
 }
