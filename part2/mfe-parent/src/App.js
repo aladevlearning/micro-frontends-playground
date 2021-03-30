@@ -21,7 +21,7 @@ function App() {
     <div className="App">
       <AmplifyAuthenticator>
         {authState !== "signedin" &&
-          <AmplifySignIn hideSignUp />
+          <AmplifySignIn slot="sign-in" hideSignUp />
         }
         {authState === "signedin" &&
           <div>
