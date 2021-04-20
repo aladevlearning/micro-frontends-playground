@@ -1,0 +1,55 @@
+
+<div>
+    <div class="example-header">
+        <mat-form-field>
+            <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+        </mat-form-field>
+    </div>
+  
+  <div class="example-container mat-elevation-z8">
+  
+    <mat-table [dataSource]="dataSource" matSort>
+  
+      <ng-container matColumnDef="from_account">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> From Account </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.from_account}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="to_account">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> To Account </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.to_account}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="amount">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Amount </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.amount}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="currency">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Currency </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.currency}} </mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="dueDate">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Due Date </mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.dueDate}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let row"> 
+          <mat-icon>delete</mat-icon>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row 
+        *matRowDef="let row; columns: displayedColumns;"
+        (click)="openDetails(row)"
+      >
+      </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+</div>
