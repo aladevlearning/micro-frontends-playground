@@ -10,6 +10,11 @@
       "StackName": "amplify-mfepayments-dev-01335",
       "StackId": "arn:aws:cloudformation:eu-west-1:555485882223:stack/amplify-mfepayments-dev-01335/d7e767d0-9012-11eb-9a3b-0232ec04ab35",
       "AmplifyAppId": "d57hhfns2a51f"
+    },
+    "categories": {
+      "auth": {
+        "mfepayments6a60bc24": {}
+      }
     }
   }
 }

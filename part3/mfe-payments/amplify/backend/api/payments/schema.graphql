@@ -1,0 +1,19 @@
+type Payment @model
+@auth(rules: [
+  { allow: owner}, # Owner authenticated user
+  { allow: private }
+]){
+  id: ID!
+  amount: Float!
+  currency: String!
+  dueDate: AWSDateTime!
+  from_account: String!
+  to_account: String!
+  message: String
+  type: PaymentType!
+}
+
+enum PaymentType {
+  DOMESTIC
+  INTERNATIONAL
+}
