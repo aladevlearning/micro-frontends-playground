@@ -1,6 +1,23 @@
-<h1 mat-dialog-title>Payment Details</h1>
-<div mat-dialog-content>
-  
-  From account:  {{data.from_account}}
-  To account:  {{data.to_account}}
+<div class="details-modal">
+  <h1 mat-dialog-title class="title">Payment Details</h1>
+  <div mat-dialog-content>
+    <mat-grid-list cols="2" rowHeight="2em">
+      <mat-grid-tile>From account</mat-grid-tile>
+      <mat-grid-tile>{{data.from_account}}</mat-grid-tile>
+      <mat-grid-tile>To account</mat-grid-tile>
+      <mat-grid-tile>{{data.to_account}}</mat-grid-tile>
+      <mat-grid-tile>Message</mat-grid-tile>
+      <mat-grid-tile>{{data.message}}</mat-grid-tile>
+      <mat-grid-tile>Amount</mat-grid-tile>
+      <mat-grid-tile>{{data.amount}}</mat-grid-tile>
+      <mat-grid-tile>Created At</mat-grid-tile>
+      <mat-grid-tile>{{data.createdAt | date:'medium'}}</mat-grid-tile>
+      <mat-grid-tile>Due Date</mat-grid-tile>
+      <mat-grid-tile>{{data.dueDate | date:'medium'}}</mat-grid-tile>
+      <mat-grid-tile>Currency</mat-grid-tile>
+      <mat-grid-tile>{{data.currency}}</mat-grid-tile>
+      <mat-grid-tile>Type</mat-grid-tile>
+      <mat-grid-tile>{{data.type}}</mat-grid-tile>
+    </mat-grid-list>  
+  </div>
 </div>

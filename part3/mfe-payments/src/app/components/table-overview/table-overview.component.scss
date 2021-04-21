@@ -1,32 +1,60 @@
-.example-container {
+.filter-and-create-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .filter-section mat-form-field {
+    min-width: 20rem;
+  }
+}
+
+.table-container {
   display: flex;
   flex-direction: column;
   min-width: 300px;
   width: 90rem;
-}
+  height: 23rem;
 
-.example-header {
-  min-height: 64px;
-  padding: 8px 24px 0;
-  max-width: 270px;
-}
+  .table-content {
+    height: 20rem;
 
-.mat-form-field {
-  font-size: 14px;
-  width: 100%;
-}
+    .mat-form-field {
+      font-size: 14px;
+      width: 100%;
+    }
 
-.mat-table {
-  overflow: auto;
-  max-height: 500px;
-}
+    .mat-table {
+      overflow: auto;
+      max-height: 500px;
+    }
 
-.mat-row:hover {
-  cursor: pointer;
-}
+    .table-header {
+      font-weight: bold;
+      color: #fff;
+      font-size: 0.875rem;
+    }
 
-.table-header {
-  font-weight: bold;
-  color: #000;
-  font-size: 0.875rem;
+    .mat-header-row {
+      background-color: #5664d2;
+    }
+
+    .delete-action,
+    .open-details-action {
+      cursor: pointer;
+      padding-right: 5px;
+    }
+
+    .spinner-section {
+      display: flex;
+      padding-top: 3rem;
+      justify-content: center;
+      align-items: center;
+      background: white;
+    }
+
+    .mat-column-actions {
+      flex: none;
+      width: 3rem;
+    }
+  }
 }

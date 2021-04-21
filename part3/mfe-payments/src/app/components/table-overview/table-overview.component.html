@@ -1,55 +1,107 @@
-
 <div>
-    <div class="example-header">
-        <mat-form-field>
-            <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
-        </mat-form-field>
+  <div class="filter-and-create-section">
+    <section class="filter-section">
+      <mat-form-field>
+        <input
+          matInput
+          (keyup)="applyFilter($any($event.target).value)"
+          placeholder="Filter"
+        />
+      </mat-form-field>
+    </section>
+    <section class="actions-section">
+      <button mat-raised-button color="primary" (click)="createPayment()">
+        Create
+      </button>
+    </section>
+  </div>
+
+  <div class="table-container mat-elevation-z8">
+    <div class="table-content">
+      <mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="from_account">
+          <mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="table-header"
+          >
+            From Account
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.from_account }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="to_account">
+          <mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="table-header"
+          >
+            To Account
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{ row.to_account }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="amount">
+          <mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="table-header"
+          >
+            Amount
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            {{ row.amount }} {{ row.currency }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="dueDate">
+          <mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="table-header"
+          >
+            Due Date
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            {{ row.dueDate | date: "medium" }}
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell
+            *matHeaderCellDef
+            mat-sort-header
+            class="table-header"
+          >
+            Actions
+          </mat-header-cell>
+          <mat-cell *matCellDef="let row">
+            <mat-icon [matMenuTriggerFor]="menu" class="more-info"
+              >more_vert</mat-icon
+            >
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="deletePayment(row)">Delete</button>
+              <button mat-menu-item (click)="openDetails(row)">
+                Open details
+              </button>
+            </mat-menu>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"> </mat-row>
+      </mat-table>
+
+      <div *ngIf="isLoading" class="spinner-section">
+        <mat-spinner diameter="50" color="primary"></mat-spinner>
+      </div>
     </div>
-  
-  <div class="example-container mat-elevation-z8">
-  
-    <mat-table [dataSource]="dataSource" matSort>
-  
-      <ng-container matColumnDef="from_account">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> From Account </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.from_account}} </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="to_account">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> To Account </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.to_account}} </mat-cell>
-      </ng-container>
 
-      <ng-container matColumnDef="amount">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Amount </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.amount}} </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="currency">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Currency </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.currency}} </mat-cell>
-      </ng-container>
-  
-      <ng-container matColumnDef="dueDate">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Due Date </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.dueDate}} </mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="actions">
-        <mat-header-cell *matHeaderCellDef mat-sort-header class="table-header"> Actions </mat-header-cell>
-        <mat-cell *matCellDef="let row"> 
-          <mat-icon>delete</mat-icon>
-        </mat-cell>
-      </ng-container>
-  
-      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-      <mat-row 
-        *matRowDef="let row; columns: displayedColumns;"
-        (click)="openDetails(row)"
-      >
-      </mat-row>
-    </mat-table>
-  
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <mat-paginator
+      [length]="payments?.length"
+      [pageIndex]="0"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"
+    ></mat-paginator>
   </div>
 </div>
