@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@angular/cdk": "^11.2.9",
+    "@angular/material": "^11.2.9",
     "@aws-amplify/ui-react": "^1.0.6",
     "@emotion/react": "^11.1.5",
     "@emotion/styled": "^11.1.5",
