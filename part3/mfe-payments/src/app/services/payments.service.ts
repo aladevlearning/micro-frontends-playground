@@ -40,20 +40,12 @@ export class PaymentsService {
       return Promise.resolve();
     }
 
-    const data = await Auth.signIn('guest', 'awsguest');
-
     const response = (await API.graphql({
       query: queries.getPayment,
       variables: { id },
     })) as GraphQLResult<GetPaymentQuery>;
 
     return response?.data?.getPayment;
-  }
-
-  async getTenantId() {
-    const currentUserInfo = await Auth.currentUserInfo();
-    const tenantId = currentUserInfo.attributes['custom:tenantId'];
-    return tenantId;
   }
 
   async createPayment(payment: Payment) {
@@ -87,5 +79,11 @@ export class PaymentsService {
     })) as GraphQLResult<DeletePaymentMutation>;
 
     return response?.data;
+  }
+
+  async getTenantId() {
+    const currentUserInfo = await Auth.currentUserInfo();
+    const tenantId = currentUserInfo.attributes['custom:tenantId'];
+    return tenantId;
   }
 }
