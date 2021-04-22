@@ -65,15 +65,17 @@ export class PaymentFormComponent implements OnInit {
     } else {
       // tslint:disable-next-line:no-debugger
       debugger;
-      const createdPayment = await this.paymentsService.createPayment(
+      let result = await this.paymentsService.createPayment(
         this.paymentForm.value
       );
       this.snackBar.open('Payment was created', '', {
         duration: 2000,
       });
 
+      // TODO handle error
+
       this.dialogRef.close({
-        data: createdPayment,
+        data: result,
       });
     }
     console.log(this.paymentForm);

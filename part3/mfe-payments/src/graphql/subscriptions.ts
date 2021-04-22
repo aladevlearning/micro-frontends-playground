@@ -3,8 +3,8 @@
 // this is an auto generated file. This will be overwritten
 
 export const onCreatePayment = /* GraphQL */ `
-  subscription OnCreatePayment {
-    onCreatePayment {
+  subscription OnCreatePayment($tenantId: String!) {
+    onCreatePayment(tenantId: $tenantId) {
       id
       amount
       currency
@@ -16,13 +16,12 @@ export const onCreatePayment = /* GraphQL */ `
       tenantId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onUpdatePayment = /* GraphQL */ `
-  subscription OnUpdatePayment {
-    onUpdatePayment {
+  subscription OnUpdatePayment($tenantId: String!) {
+    onUpdatePayment(tenantId: $tenantId) {
       id
       amount
       currency
@@ -34,13 +33,12 @@ export const onUpdatePayment = /* GraphQL */ `
       tenantId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
 export const onDeletePayment = /* GraphQL */ `
-  subscription OnDeletePayment {
-    onDeletePayment {
+  subscription OnDeletePayment($tenantId: String!) {
+    onDeletePayment(tenantId: $tenantId) {
       id
       amount
       currency
@@ -52,7 +50,6 @@ export const onDeletePayment = /* GraphQL */ `
       tenantId
       createdAt
       updatedAt
-      owner
     }
   }
 `;

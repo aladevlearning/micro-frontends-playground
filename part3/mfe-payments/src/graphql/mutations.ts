@@ -19,7 +19,6 @@ export const createPayment = /* GraphQL */ `
       tenantId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -40,7 +39,6 @@ export const updatePayment = /* GraphQL */ `
       tenantId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -61,7 +59,6 @@ export const deletePayment = /* GraphQL */ `
       tenantId
       createdAt
       updatedAt
-      owner
     }
   }
 `;

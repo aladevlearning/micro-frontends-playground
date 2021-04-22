@@ -16,7 +16,6 @@ export const getPayment = /* GraphQL */ `
       tenantId
       createdAt
       updatedAt
-      owner
     }
   }
 `;
@@ -39,7 +38,6 @@ export const listPayments = /* GraphQL */ `
         tenantId
         createdAt
         updatedAt
-        owner
       }
       nextToken
     }

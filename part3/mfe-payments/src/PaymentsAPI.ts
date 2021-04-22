@@ -103,7 +103,6 @@ export type Payment = {
   tenantId?: string,
   createdAt?: string,
   updatedAt?: string,
-  owner?: string | null,
 };
 
 export type UpdatePaymentInput = {
@@ -178,7 +177,6 @@ export type CreatePaymentMutation = {
     tenantId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -201,7 +199,6 @@ export type UpdatePaymentMutation = {
     tenantId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -224,7 +221,6 @@ export type DeletePaymentMutation = {
     tenantId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -246,7 +242,6 @@ export type GetPaymentQuery = {
     tenantId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };
 
@@ -272,10 +267,13 @@ export type ListPaymentsQuery = {
       tenantId: string,
       createdAt: string,
       updatedAt: string,
-      owner?: string | null,
     } | null > | null,
     nextToken?: string | null,
   } | null,
+};
+
+export type OnCreatePaymentSubscriptionVariables = {
+  tenantId?: string,
 };
 
 export type OnCreatePaymentSubscription = {
@@ -292,8 +290,11 @@ export type OnCreatePaymentSubscription = {
     tenantId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
+};
+
+export type OnUpdatePaymentSubscriptionVariables = {
+  tenantId?: string,
 };
 
 export type OnUpdatePaymentSubscription = {
@@ -310,8 +311,11 @@ export type OnUpdatePaymentSubscription = {
     tenantId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
+};
+
+export type OnDeletePaymentSubscriptionVariables = {
+  tenantId?: string,
 };
 
 export type OnDeletePaymentSubscription = {
@@ -328,6 +332,5 @@ export type OnDeletePaymentSubscription = {
     tenantId: string,
     createdAt: string,
     updatedAt: string,
-    owner?: string | null,
   } | null,
 };

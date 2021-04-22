@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import {
   CreatePaymentMutation,
-  DeletePaymentInput,
   DeletePaymentMutation,
   GetPaymentQuery,
   ListPaymentsQuery,
