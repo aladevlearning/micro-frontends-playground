@@ -13,6 +13,7 @@ export const getPayment = /* GraphQL */ `
       to_account
       message
       type
+      tenantId
       createdAt
       updatedAt
       owner
@@ -35,6 +36,7 @@ export const listPayments = /* GraphQL */ `
         to_account
         message
         type
+        tenantId
         createdAt
         updatedAt
         owner

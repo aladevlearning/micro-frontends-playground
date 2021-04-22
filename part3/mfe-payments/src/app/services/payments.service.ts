@@ -20,12 +20,17 @@ export class PaymentsService {
 
   // tslint:disable-next-line:typedef
   async getPayments() {
-    const data = await Auth.signIn('guest', 'awsguest');
-    const cs: any = await Auth.currentSession();
-    console.log('idToken:', cs.idToken);
+    const tenantId = await this.getTenantId();
 
     const response = (await API.graphql({
       query: queries.listPayments,
+      variables: {
+        filter: {
+          tenantId: {
+            eq: tenantId,
+          },
+        },
+      },
     })) as GraphQLResult<ListPaymentsQuery>;
 
     return response?.data?.listPayments?.items;
@@ -37,8 +42,6 @@ export class PaymentsService {
     }
 
     const data = await Auth.signIn('guest', 'awsguest');
-    const cs: any = await Auth.currentSession();
-    console.log('idToken:', cs.idToken);
 
     const response = (await API.graphql({
       query: queries.getPayment,
@@ -48,10 +51,15 @@ export class PaymentsService {
     return response?.data?.getPayment;
   }
 
+  async getTenantId() {
+    const currentUserInfo = await Auth.currentUserInfo();
+    const tenantId = currentUserInfo.attributes['custom:tenantId'];
+    return tenantId;
+  }
+
   async createPayment(payment: Payment) {
-    const data = await Auth.signIn('guest', 'awsguest');
-    const cs: any = await Auth.currentSession();
-    console.log('idToken:', cs.idToken);
+    const tenantId = await this.getTenantId();
+    payment.tenantId = tenantId;
 
     const response = (await API.graphql({
       query: mutations.createPayment,
@@ -68,9 +76,7 @@ export class PaymentsService {
       return Promise.resolve();
     }
 
-    const data = await Auth.signIn('guest', 'awsguest');
-    const cs: any = await Auth.currentSession();
-    console.log('idToken:', cs.idToken);
+    const tenantId = await this.getTenantId();
 
     const response = (await API.graphql({
       query: mutations.deletePayment,

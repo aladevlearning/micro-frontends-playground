@@ -9,7 +9,7 @@ import GlobalStyles from 'src/components/GlobalStyles';
 import 'src/mixins/chartjs';
 import theme from 'src/theme';
 import routes from 'src/routes';
-import Amplify from 'aws-amplify';
+import Amplify, { Auth } from 'aws-amplify';
 import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
@@ -23,6 +23,36 @@ function App() {
     });
   }, []);
 
+  /*
+  const signUp = async ({ username, password, email, tenantId, tenantName }) => {
+    try {
+      debugger;
+      const signedUser = await Auth.signUp({
+        username,
+        password,
+        'attributes': {
+          email,
+          'custom:tenantId': tenantId,
+          'custom:tenantName': tenantName
+        }
+      });
+
+
+      console.log('Signed up user:', signedUser);
+    } catch (e) {
+      console.error(e);
+    }
+
+  };
+
+  signUp({
+    username: 'userTenantA',
+    password: 'passwordA',
+    email: 'lagrotteri@gmail.com',
+    tenantId: 'TenantA',
+    tenantName: 'TenantNameA',
+  });
+*/
   return (
     <div className="App">
       <AmplifyAuthenticator>

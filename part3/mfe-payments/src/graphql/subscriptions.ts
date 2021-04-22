@@ -13,6 +13,7 @@ export const onCreatePayment = /* GraphQL */ `
       to_account
       message
       type
+      tenantId
       createdAt
       updatedAt
       owner
@@ -30,6 +31,7 @@ export const onUpdatePayment = /* GraphQL */ `
       to_account
       message
       type
+      tenantId
       createdAt
       updatedAt
       owner
@@ -47,6 +49,7 @@ export const onDeletePayment = /* GraphQL */ `
       to_account
       message
       type
+      tenantId
       createdAt
       updatedAt
       owner

@@ -14,7 +14,7 @@
           "defaultAuthentication": {
             "authenticationType": "AMAZON_COGNITO_USER_POOLS",
             "userPoolConfig": {
-              "userPoolId": "authmfepayments6a60bc24"
+              "userPoolId": "authmfepaymentseb489991"
             }
           },
           "additionalAuthenticationProviders": []
@@ -23,8 +23,9 @@
     }
   },
   "auth": {
-    "mfepayments6a60bc24": {
+    "mfepaymentseb489991": {
       "service": "Cognito",
+      "serviceType": "imported",
       "providerPlugin": "awscloudformation",
       "dependsOn": [],
       "customAuth": false

@@ -1,8 +1,10 @@
-type Payment @model
-@auth(rules: [
-  { allow: owner}, # Owner authenticated user
-  { allow: private }
-]){
+type Payment
+  @model
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "tenantId", identityClaim: "custom:tenantId" }
+    ]
+  ) {
   id: ID!
   amount: Float!
   currency: String!
@@ -11,6 +13,7 @@ type Payment @model
   to_account: String!
   message: String
   type: PaymentType!
+  tenantId: ID!
 }
 
 enum PaymentType {

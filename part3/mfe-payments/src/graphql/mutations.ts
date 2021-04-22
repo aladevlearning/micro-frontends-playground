@@ -16,6 +16,7 @@ export const createPayment = /* GraphQL */ `
       to_account
       message
       type
+      tenantId
       createdAt
       updatedAt
       owner
@@ -36,6 +37,7 @@ export const updatePayment = /* GraphQL */ `
       to_account
       message
       type
+      tenantId
       createdAt
       updatedAt
       owner
@@ -56,6 +58,7 @@ export const deletePayment = /* GraphQL */ `
       to_account
       message
       type
+      tenantId
       createdAt
       updatedAt
       owner
