@@ -20,7 +20,7 @@ const routes = [
     element: <MainLayout />,
     children: [
       { path: '404', element: <NotFound /> },
-      { path: '/', element: <Navigate to="/app/dashboard" /> },
+      { path: '/', element: <Navigate to="/app/payments" /> },
       { path: '*', element: <Navigate to="/404" /> }
     ]
   }

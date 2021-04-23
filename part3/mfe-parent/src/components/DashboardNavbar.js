@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
 import InputIcon from '@material-ui/icons/Input';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Logo from './Logo';
 import { Auth } from 'aws-amplify';
 
@@ -36,9 +37,15 @@ const DashboardNavbar = ({ onMobileNavOpen, ...rest }) => {
         <Hidden lgUp>
           <IconButton
             color="inherit"
+            onClick={onMobileNavOpen}
+          >
+            <MenuIcon />
+          </IconButton>
+          <IconButton
+            color="inherit"
             onClick={onSignOut}
           >
-            <MenuIcon/>
+            <ExitToAppIcon />
           </IconButton>
         </Hidden>
       </Toolbar>

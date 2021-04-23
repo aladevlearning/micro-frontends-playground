@@ -1,9 +1,6 @@
+import HomeIcon from '@material-ui/icons/Home';
 const Logo = (props) => (
-  <img
-    alt="Logo"
-    src="icons/logo.svg"
-    {...props}
-  />
+  <HomeIcon style={{ color: 'white' }} />
 );
 
 export default Logo;

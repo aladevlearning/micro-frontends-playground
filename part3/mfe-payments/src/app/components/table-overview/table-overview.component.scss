@@ -54,7 +54,17 @@
 
     .mat-column-actions {
       flex: none;
-      width: 3rem;
+      width: 4rem;
     }
+
+    .menu-section {
+      cursor: pointer;
+    }
+  }
+}
+
+@media only screen and (max-width: 350px) {
+  .table-container {
+    width: auto;
   }
 }

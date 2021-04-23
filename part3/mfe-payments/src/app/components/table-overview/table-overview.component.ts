@@ -84,8 +84,6 @@ export class TableOverviewComponent implements OnInit {
         this.paymentService
           .deletePaymentById(row.id)
           .then(() => {
-            // tslint:disable-next-line:no-debugger
-            debugger;
             const index = this.dataSource.data.findIndex(
               (payment: Payment) => payment.id === row.id
             );

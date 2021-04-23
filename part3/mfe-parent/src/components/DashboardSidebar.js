@@ -1,4 +1,4 @@
-import { useEffect, useState  } from 'react';
+import { useEffect, useState } from 'react';
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Auth } from 'aws-amplify';
@@ -27,11 +27,6 @@ const user = {
 
 const items = [
   {
-    href: '/app/dashboard',
-    icon: BarChartIcon,
-    title: 'Dashboard'
-  },
-  {
     href: '/app/accounts',
     icon: UsersIcon,
     title: 'Accounts'
@@ -45,16 +40,17 @@ const items = [
 
 const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   const location = useLocation();
-  const [username, setUsername] = useState("ahah")
-  useEffect(() => {
+  const [username, setUsername] = useState("")
+  const [tenantName, setTenantName] = useState("")
+  useEffect(async () => {
     if (openMobile && onMobileClose) {
       onMobileClose();
     }
 
-    Auth.currentUserInfo().then((userInfo) => {
-      const { username } = userInfo;
-      setUsername(username);
-    })
+    const userInfo = await Auth.currentUserInfo();
+    const { username, attributes } = userInfo;
+    setUsername(username);
+    setTenantName(attributes['custom:tenantName']);
   }, [location.pathname]);
 
   const content = (
@@ -83,17 +79,15 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
           }}
           to="/app/accounts"
         />
-        <Typography
-          color="textPrimary"
-          variant="h5"
-        >
-          {username}
+        <Typography component="div">
+          <Box display="inline" fontWeight="fontWeightBold">
+            Username:
+          </Box> {username}
         </Typography>
-        <Typography
-          color="textSecondary"
-          variant="body2"
-        >
-          {user.jobTitle}
+        <Typography component="div">
+          <Box display="inline" fontWeight="fontWeightBold">
+            Tenant:
+          </Box> {tenantName}
         </Typography>
       </Box>
       <Divider />
