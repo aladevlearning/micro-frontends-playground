@@ -86,7 +86,7 @@
   }
 }
 
-@media screen and (orientation: landscape) {
+@media only screen and (max-width: 700px) and (orientation: landscape) {
   .table-container {
     width: auto !important;
   }
