@@ -42,15 +42,19 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   const [username, setUsername] = useState("")
   const [tenantName, setTenantName] = useState("")
 
-  useEffect(async () => {
+  useEffect(() => {
+    async function setUserInfo() {
+      const userInfo = await Auth.currentUserInfo();
+      const { username, attributes } = userInfo;
+      setUsername(username);
+      setTenantName(attributes['custom:tenantName']);
+    }
+
     if (openMobile && onMobileClose) {
       onMobileClose();
     }
 
-    const userInfo = await Auth.currentUserInfo();
-    const { username, attributes } = userInfo;
-    setUsername(username);
-    setTenantName(attributes['custom:tenantName']);
+    setUserInfo();
   }, [location.pathname]);
 
   const content = (
