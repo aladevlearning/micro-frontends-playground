@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import { AmplifySignOut, AmplifyAuthenticator, AmplifySignIn } from '@aws-amplify/ui-react'
+import { AmplifyAuthenticator, AmplifySignIn } from '@aws-amplify/ui-react'
 import { onAuthUIStateChange } from '@aws-amplify/ui-components'
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import { useRoutes } from 'react-router-dom';
@@ -9,7 +9,7 @@ import GlobalStyles from 'src/components/GlobalStyles';
 import 'src/mixins/chartjs';
 import theme from 'src/theme';
 import routes from 'src/routes';
-import Amplify, { Auth } from 'aws-amplify';
+import Amplify from 'aws-amplify';
 import awsconfig from './aws-exports';
 Amplify.configure(awsconfig);
 
@@ -61,11 +61,10 @@ function App() {
         }
         {authState === "signedin" &&
           <div>
-            <AmplifySignOut />
             <ThemeProvider theme={theme}>
-                   <GlobalStyles />
-                   {routing}
-             </ThemeProvider>
+              <GlobalStyles />
+              {routing}
+            </ThemeProvider>
           </div>
         }
 

@@ -13,7 +13,6 @@ import {
   Typography
 } from '@material-ui/core';
 import {
-  BarChart as BarChartIcon,
   Users as UsersIcon,
   CreditCard as PaymentsInfo
 } from 'react-feather';
@@ -42,6 +41,7 @@ const DashboardSidebar = ({ onMobileClose, openMobile }) => {
   const location = useLocation();
   const [username, setUsername] = useState("")
   const [tenantName, setTenantName] = useState("")
+
   useEffect(async () => {
     if (openMobile && onMobileClose) {
       onMobileClose();

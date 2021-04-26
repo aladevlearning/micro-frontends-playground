@@ -66,6 +66,14 @@
 @media only screen and (max-width: 480px) {
   .table-container {
     width: auto;
+
+    .mat-cell:first-of-type {
+      padding-left: 0.8rem;
+    }
+
+    .more-info {
+      padding-left: 0.8rem;
+    }
   }
 
   .filter-and-create-section {
@@ -75,5 +83,11 @@
         min-width: 14rem !important;
       }
     }
+  }
+}
+
+@media only screen and (min-width: 480px) and (orientation: landscape) {
+  .table-container {
+    background-color: lightblue;
   }
 }

@@ -5,7 +5,6 @@ import {
   Grid
 } from '@material-ui/core';
 import Budget from 'src/components/dashboard//Budget';
-import Sales from 'src/components/dashboard//Sales';
 import TotalCustomers from 'src/components/dashboard//TotalCustomers';
 
 const Dashboard = () => (
