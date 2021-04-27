@@ -25,3 +25,15 @@
     justify-content: flex-end;
   }
 }
+
+@media only screen and (max-width: 480px) {
+  .payment-form {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 700px) and (orientation: landscape) {
+  .payment-form {
+    height: 18rem;
+  }
+}
