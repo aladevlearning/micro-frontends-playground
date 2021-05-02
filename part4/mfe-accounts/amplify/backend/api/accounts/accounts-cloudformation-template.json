@@ -1,27 +1,27 @@
 {
     "AWSTemplateFormatVersion": "2010-09-09",
     "Description": "API Gateway resource stack creation using Amplify CLI",
-    
+
     "Parameters": {
         "env": {
             "Type": "String"
         },
-    
-    
+
+
           "functionaccountsName": {
             "Type": "String",
             "Default": "functionaccountsName"
           },
 
-          
+
           "functionaccountsArn": {
             "Type": "String",
             "Default": "functionaccountsArn"
           }
 
-          
-          
-    
+
+
+
     },
      "Conditions": {
         "ShouldNotCreateEnvResources": {
@@ -34,9 +34,9 @@
         }
     },
     "Resources": {
-        
-        
-        
+
+
+
       "accounts": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
@@ -81,7 +81,7 @@
               "https"
             ],
             "paths": {
-              
+
               "/accounts": {
                 "options": {
                   "consumes": [
@@ -112,7 +112,7 @@
                         "statusCode": "200",
                         "responseParameters": {
                           "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
-                          "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                          "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,X-Amz-Security-Token,Authorization,X-Api-Key,X-Requested-With,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers'",
                           "method.response.header.Access-Control-Allow-Origin": "'*'"
                         }
                       }
@@ -149,13 +149,13 @@
                       }
                     }
                   },
-                  
+
                     "security": [
                         {
                           "sigv4": []
                         }
                       ],
-                  
+
                   "x-amazon-apigateway-integration": {
                     "responses": {
                       "default": {
@@ -171,12 +171,12 @@
                               "Ref": "AWS::Region"
                             },
                             ":lambda:path/2015-03-31/functions/",
-                            
+
                             {
 
                                 "Ref": "functionaccountsArn"
                             },
-                            
+
                             "/invocations"
                           ]
                         ]
@@ -217,7 +217,7 @@
                         "statusCode": "200",
                         "responseParameters": {
                           "method.response.header.Access-Control-Allow-Methods": "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'",
-                          "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
+                          "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,X-Amz-Security-Token,Authorization,X-Api-Key,X-Requested-With,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers'",
                           "method.response.header.Access-Control-Allow-Origin": "'*'"
                         }
                       }
@@ -254,13 +254,13 @@
                       }
                     }
                   },
-                  
+
                     "security": [
                         {
                           "sigv4": []
                         }
                       ],
-                  
+
                   "x-amazon-apigateway-integration": {
                     "responses": {
                       "default": {
@@ -276,12 +276,12 @@
                             "Ref": "AWS::Region"
                           },
                           ":lambda:path/2015-03-31/functions/",
-                          
+
                           {
 
                             "Ref": "functionaccountsArn"
                           },
-                          
+
                           "/invocations"
                         ]
                       ]
@@ -292,7 +292,7 @@
                   }
                 }
               }
-              
+
             },
             "securityDefinitions": {
               "sigv4": {
@@ -333,17 +333,17 @@
         }
       },
 
-      
-        
+
+
 
         "functionaccountsPermissionaccounts": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
-                "FunctionName": 
+                "FunctionName":
                     {
                         "Ref":  "functionaccountsName"
                     },
-                    
+
                     "Action": "lambda:InvokeFunction",
                 "Principal": "apigateway.amazonaws.com",
                 "SourceArn": {
@@ -368,8 +368,8 @@
                 }
             }
         },
-        
-        
+
+
 
       "DeploymentAPIGWaccounts": {
         "Type": "AWS::ApiGateway::Deployment",
