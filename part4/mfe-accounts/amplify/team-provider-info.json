@@ -30,7 +30,7 @@
       "function": {
         "accountsRest": {
           "deploymentBucketName": "amplify-mfeaccounts-dev-00528-deployment",
-          "s3Key": "amplify-builds/accountsRest-32793258534f50344734-build.zip"
+          "s3Key": "amplify-builds/accountsRest-5874726b327064725372-build.zip"
         }
       }
     }
