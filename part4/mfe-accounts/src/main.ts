@@ -7,6 +7,13 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
+import Amplify, { API } from 'aws-amplify';
+import awsconfig from './aws-exports';
 
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+Amplify.configure({
+  ...awsconfig,
+});
+
+platformBrowserDynamic()
+  .bootstrapModule(AppModule)
+  .catch((err) => console.error(err));
