@@ -13,7 +13,7 @@
     },
     "categories": {
       "auth": {
-        "mfeaccountsadcb780b": {
+        "mfeaccounts9f6c38e0": {
           "userPoolId": "eu-west-1_B9Zw1xNiY",
           "userPoolName": "mfeparent71e86a8b_userpool_71e86a8b-dev",
           "webClientId": "4o0v6sa95vdusu5dessbfuo71c",
@@ -28,9 +28,9 @@
         }
       },
       "function": {
-        "accounts": {
+        "accountsRest": {
           "deploymentBucketName": "amplify-mfeaccounts-dev-00528-deployment",
-          "s3Key": "amplify-builds/accounts-65347a62515142436879-build.zip"
+          "s3Key": "amplify-builds/accountsRest-32793258534f50344734-build.zip"
         }
       }
     }

@@ -5,15 +5,8 @@
       "providerPlugin": "awscloudformation"
     }
   },
-  "function": {
-    "accounts": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    }
-  },
   "auth": {
-    "mfeaccountsadcb780b": {
+    "mfeaccounts9f6c38e0": {
       "service": "Cognito",
       "serviceType": "imported",
       "providerPlugin": "awscloudformation",
@@ -21,14 +14,22 @@
       "customAuth": false
     }
   },
+  "function": {
+    "accountsRest": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": []
+    }
+  },
   "api": {
-    "accounts": {
+    "accountsRest": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "accounts",
+          "resourceName": "accountsRest",
           "attributes": [
             "Name",
             "Arn"

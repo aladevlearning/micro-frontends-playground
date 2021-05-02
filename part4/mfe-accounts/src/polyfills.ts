@@ -64,7 +64,6 @@ import 'zone.js/dist/zone'; // Included with Angular CLI.
  */
 import 'document-register-element';
 
-// Add global
 (window as any).global = window;
 (window as any).process = {
   env: { DEBUG: undefined },

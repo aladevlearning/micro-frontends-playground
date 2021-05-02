@@ -1,25 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-
-import { API, Auth } from 'aws-amplify';
+import { Component } from '@angular/core';
+import { API } from 'aws-amplify';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'mfe-accounts';
   accounts = [];
 
-  async ngOnInit() {
-    API.get('accounts', '/accounts', {
-      headers: {
-        Authorization: `Bearer ${(await Auth.currentSession())
-          .getIdToken()
-          .getJwtToken()}`,
-      },
-    }).then((data) => {
-      this.accounts = data;
+  ngOnInit() {
+    API.get('accountsRest', '/accounts', {}).then((result) => {
+      console.log(result);
     });
   }
 }
