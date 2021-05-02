@@ -1,4 +1,13 @@
 {
-  "permissions": {},
+  "permissions": {
+    "auth": {
+      "mfeaccounts9f6c38e0": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    }
+  },
   "lambdaLayers": []
 }

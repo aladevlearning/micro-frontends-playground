@@ -1,4 +1,8 @@
 /* Amplify Params - DO NOT EDIT
+	AUTH_MFEACCOUNTS9F6C38E0_USERPOOLID
+	ENV
+	REGION
+Amplify Params - DO NOT EDIT *//* Amplify Params - DO NOT EDIT
     ENV
     REGION
 Amplify Params - DO NOT EDIT */
