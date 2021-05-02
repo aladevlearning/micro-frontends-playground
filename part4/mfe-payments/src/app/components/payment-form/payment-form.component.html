@@ -1,0 +1,75 @@
+<section class="payment-form">
+  <h1>Create a Payment</h1>
+  <form [formGroup]="paymentForm" (ngSubmit)="submitForm()" novalidate>
+    <mat-form-field class="full-width">
+      <input
+        matInput
+        placeholder="From Account"
+        formControlName="from_account"
+      />
+      <mat-error *ngIf="getRequiredErrorIfAny('from_account')">
+        {{ getRequiredErrorIfAny("from_account") }}
+      </mat-error>
+      <mat-error *ngIf="getMaxLengthErrorIfAny('from_account')">
+        {{ getMaxLengthErrorIfAny("from_account") }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput placeholder="To Account" formControlName="to_account" />
+      <mat-error *ngIf="getRequiredErrorIfAny('to_account')">
+        {{ getRequiredErrorIfAny("to_account") }}
+      </mat-error>
+      <mat-error *ngIf="getMaxLengthErrorIfAny('to_account')">
+        {{ getMaxLengthErrorIfAny("to_account") }}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="full-width">
+      <mat-form-field class="amount-section">
+        <input matInput placeholder="Amount" formControlName="amount" />
+        <mat-error *ngIf="getRequiredErrorIfAny('amount')">
+          {{ getRequiredErrorIfAny("amount") }}
+        </mat-error>
+        <mat-error *ngIf="paymentForm?.get('amount')?.hasError('pattern')">
+          Amount is in the wrong format
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Date picker -->
+      <mat-form-field class="due-section">
+        <input
+          matInput
+          readonly
+          [matDatepicker]="picker"
+          placeholder="Due date"
+          formControlName="dueDate"
+          (dateChange)="date($event)"
+        />
+        <mat-error *ngIf="getRequiredErrorIfAny('dueDate')">
+          {{ getRequiredErrorIfAny("dueDate") }}
+        </mat-error>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="misc-bottom-padding full-width">
+      <mat-radio-group aria-label="Select an option" formControlName="type">
+        <mat-radio-button value="DOMESTIC">Domestic</mat-radio-button>
+        <mat-radio-button value="INTERNATIONAL">International</mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field class="message-section full-width">
+      <input matInput placeholder="Message" formControlName="message" />
+      <mat-error *ngIf="getMaxLengthErrorIfAny('message')">
+        {{ getMaxLengthErrorIfAny("message") }}
+      </mat-error>
+    </mat-form-field>
+
+    <div class="submit-section">
+      <button mat-flat-button color="primary">Create</button>
+    </div>
+  </form>
+</section>

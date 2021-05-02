@@ -1,0 +1,32 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-mfepayments-dev-01335-authRole",
+      "UnauthRoleArn": "arn:aws:iam::555485882223:role/amplify-mfepayments-dev-01335-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::555485882223:role/amplify-mfepayments-dev-01335-authRole",
+      "Region": "eu-west-1",
+      "DeploymentBucketName": "amplify-mfepayments-dev-01335-deployment",
+      "UnauthRoleName": "amplify-mfepayments-dev-01335-unauthRole",
+      "StackName": "amplify-mfepayments-dev-01335",
+      "StackId": "arn:aws:cloudformation:eu-west-1:555485882223:stack/amplify-mfepayments-dev-01335/d7e767d0-9012-11eb-9a3b-0232ec04ab35",
+      "AmplifyAppId": "d57hhfns2a51f"
+    },
+    "categories": {
+      "auth": {
+        "mfepaymentseb489991": {
+          "userPoolId": "eu-west-1_B9Zw1xNiY",
+          "userPoolName": "mfeparent71e86a8b_userpool_71e86a8b-dev",
+          "webClientId": "4o0v6sa95vdusu5dessbfuo71c",
+          "nativeClientId": "1ivh4m4mdr0j6hr471m9o67407",
+          "identityPoolId": "eu-west-1:db8a451c-ea84-44f5-8858-5af68b24f701",
+          "identityPoolName": "mfeparent71e86a8b_identitypool_71e86a8b__dev",
+          "allowUnauthenticatedIdentities": false,
+          "authRoleArn": "arn:aws:iam::555485882223:role/amplify-mfeparent-dev-165200-authRole",
+          "authRoleName": "amplify-mfeparent-dev-165200-authRole",
+          "unauthRoleArn": "arn:aws:iam::555485882223:role/amplify-mfeparent-dev-165200-unauthRole",
+          "unauthRoleName": "amplify-mfeparent-dev-165200-unauthRole"
+        }
+      }
+    }
+  }
+}

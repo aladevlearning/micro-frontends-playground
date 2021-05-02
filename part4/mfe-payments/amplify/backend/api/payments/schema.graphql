@@ -1,0 +1,22 @@
+type Payment
+  @model
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "tenantId", identityClaim: "custom:tenantId" }
+    ]
+  ) {
+  id: ID!
+  amount: Float!
+  currency: String!
+  dueDate: AWSDateTime!
+  from_account: String!
+  to_account: String!
+  message: String
+  type: PaymentType!
+  tenantId: ID!
+}
+
+enum PaymentType {
+  DOMESTIC
+  INTERNATIONAL
+}

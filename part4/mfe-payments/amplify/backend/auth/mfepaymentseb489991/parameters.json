@@ -1,0 +1,6 @@
+{
+  "authSelections": "identityPoolAndUserPool",
+  "resourceName": "mfepaymentseb489991",
+  "serviceType": "imported",
+  "region": "eu-west-1"
+}
