@@ -10,11 +10,6 @@
       "StackName": "amplify-mfeaccounts-dev-00528",
       "StackId": "arn:aws:cloudformation:eu-west-1:555485882223:stack/amplify-mfeaccounts-dev-00528/b60a8a80-9011-11eb-9058-0235fb9235f1",
       "AmplifyAppId": "dios86f4dl5ut"
-    },
-    "categories": {
-      "auth": {
-        "cognitob8649d9d": {}
-      }
     }
   }
 }
