@@ -19,6 +19,12 @@
     "authmfeaccounts9f6c38e0UserPoolId": {
       "Type": "String",
       "Default": "authmfeaccounts9f6c38e0UserPoolId"
+    },
+    "rdsaccountsDatabaseArn": {
+      "Type": "String"
+    },
+    "rdsaccountsDatabaseSecretArn": {
+      "Type": "String"
     }
   },
   "Conditions": {
@@ -76,6 +82,12 @@
             },
             "AUTH_MFEACCOUNTS9F6C38E0_USERPOOLID": {
               "Ref": "authmfeaccounts9f6c38e0UserPoolId"
+            },
+            "DB_ARN": {
+              "Ref": "rdsaccountsDatabaseArn"
+            },
+            "SECRET_ARN": {
+              "Ref": "rdsaccountsDatabaseSecretArn"
             }
           }
         },
@@ -124,6 +136,80 @@
               "Action": [
                 "sts:AssumeRole"
               ]
+            }
+          ]
+        }
+      }
+    },
+    "rdsDataAuroraPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "rds-data-aurora-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "rds-data:*"
+              ],
+              "Resource": {
+                "Fn::Sub": [
+                  "arn:aws:rds:${region}:${account}:cluster:*",
+                  {
+                    "region": {
+                      "Ref": "AWS::Region"
+                    },
+                    "account": {
+                      "Ref": "AWS::AccountId"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    },
+    "lambdaSecretManagerPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "lambda-secret-manager-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "secretsmanager:GetRandomPassword",
+                "secretsmanager:ListSecrets"
+              ],
+              "Resource": "*"
+            },
+            {
+              "Effect": "Allow",
+              "Action": [
+                "secretsmanager:*"
+              ],
+              "Resource": {
+                "Ref": "rdsaccountsDatabaseSecretArn"
+              }
             }
           ]
         }

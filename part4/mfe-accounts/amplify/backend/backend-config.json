@@ -26,6 +26,14 @@
           "attributes": [
             "UserPoolId"
           ]
+        },
+        {
+          "category": "rds",
+          "resourceName": "accountsDatabase",
+          "attributes": [
+            "Arn",
+            "SecretArn"
+          ]
         }
       ]
     }
@@ -44,6 +52,13 @@
           ]
         }
       ]
+    }
+  },
+  "rds": {
+    "accountsDatabase": {
+      "service": "RDSCluster",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
     }
   }
 }
