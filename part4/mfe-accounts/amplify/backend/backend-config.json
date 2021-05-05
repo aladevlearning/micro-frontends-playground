@@ -31,7 +31,7 @@
     }
   },
   "api": {
-    "accountsRest": {
+    "accountsRestApi": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
