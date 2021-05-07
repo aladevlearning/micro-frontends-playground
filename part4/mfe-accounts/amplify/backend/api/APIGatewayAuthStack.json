@@ -11,7 +11,7 @@
     "env": {
       "Type": "String"
     },
-    "accountsRestApi": {
+    "accountsAPI": {
       "Type": "String"
     }
   },
@@ -52,7 +52,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -82,7 +82,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -112,7 +112,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -142,7 +142,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -172,7 +172,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -202,7 +202,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -232,7 +232,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -262,7 +262,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -292,7 +292,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {
@@ -322,7 +322,7 @@
                       },
                       ":",
                       {
-                        "Ref": "accountsRestApi"
+                        "Ref": "accountsAPI"
                       },
                       "/",
                       {

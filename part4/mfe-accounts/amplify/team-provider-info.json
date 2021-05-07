@@ -1,19 +1,25 @@
 {
   "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-mfeaccounts-dev-00528-authRole",
-      "UnauthRoleArn": "arn:aws:iam::555485882223:role/amplify-mfeaccounts-dev-00528-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::555485882223:role/amplify-mfeaccounts-dev-00528-authRole",
+      "AuthRoleName": "amplify-mfeaccounts-dev-90602-authRole",
+      "UnauthRoleArn": "arn:aws:iam::555485882223:role/amplify-mfeaccounts-dev-90602-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::555485882223:role/amplify-mfeaccounts-dev-90602-authRole",
       "Region": "eu-west-1",
-      "DeploymentBucketName": "amplify-mfeaccounts-dev-00528-deployment",
-      "UnauthRoleName": "amplify-mfeaccounts-dev-00528-unauthRole",
-      "StackName": "amplify-mfeaccounts-dev-00528",
-      "StackId": "arn:aws:cloudformation:eu-west-1:555485882223:stack/amplify-mfeaccounts-dev-00528/b60a8a80-9011-11eb-9058-0235fb9235f1",
-      "AmplifyAppId": "dios86f4dl5ut"
+      "DeploymentBucketName": "amplify-mfeaccounts-dev-90602-deployment",
+      "UnauthRoleName": "amplify-mfeaccounts-dev-90602-unauthRole",
+      "StackName": "amplify-mfeaccounts-dev-90602",
+      "StackId": "arn:aws:cloudformation:eu-west-1:555485882223:stack/amplify-mfeaccounts-dev-90602/ae425430-af02-11eb-a521-0a8d6ebee295",
+      "AmplifyAppId": "d2dz6h6ducwnzm"
     },
     "categories": {
+      "function": {
+        "accountsAPI": {
+          "deploymentBucketName": "amplify-mfeaccounts-dev-90602-deployment",
+          "s3Key": "amplify-builds/accountsAPI-6a6d4c344c48455a4d73-build.zip"
+        }
+      },
       "auth": {
-        "mfeaccounts9f6c38e0": {
+        "mfeaccounts3c56588c": {
           "userPoolId": "eu-west-1_B9Zw1xNiY",
           "userPoolName": "mfeparent71e86a8b_userpool_71e86a8b-dev",
           "webClientId": "4o0v6sa95vdusu5dessbfuo71c",
@@ -25,12 +31,6 @@
           "authRoleName": "amplify-mfeparent-dev-165200-authRole",
           "unauthRoleArn": "arn:aws:iam::555485882223:role/amplify-mfeparent-dev-165200-unauthRole",
           "unauthRoleName": "amplify-mfeparent-dev-165200-unauthRole"
-        }
-      },
-      "function": {
-        "accountsRest": {
-          "deploymentBucketName": "amplify-mfeaccounts-dev-00528-deployment",
-          "s3Key": "amplify-builds/accountsRest-585158344b344447526e-build.zip"
         }
       }
     }

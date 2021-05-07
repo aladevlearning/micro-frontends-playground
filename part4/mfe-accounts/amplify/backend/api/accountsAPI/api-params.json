@@ -2,7 +2,7 @@
   "paths": [
     {
       "name": "/accounts",
-      "lambdaFunction": "accountsRest",
+      "lambdaFunction": "accountsAPI",
       "privacy": {
         "private": true,
         "auth": [
@@ -16,23 +16,23 @@
       "policyResourceName": "/accounts"
     }
   ],
-  "resourceName": "accountsRestApi",
-  "apiName": "accountsRestApi",
+  "resourceName": "accountsAPI",
+  "apiName": "accountsAPI",
   "functionArns": [
     {
-      "lambdaFunction": "accountsRest"
+      "lambdaFunction": "accountsAPI"
     }
   ],
   "privacy": {
     "auth": 1,
     "unauth": 0,
-    "authRoleName": "amplify-mfeaccounts-dev-00528-authRole",
-    "unAuthRoleName": "amplify-mfeaccounts-dev-00528-unauthRole"
+    "authRoleName": "amplify-mfeaccounts-dev-90602-authRole",
+    "unAuthRoleName": "amplify-mfeaccounts-dev-90602-unauthRole"
   },
   "dependsOn": [
     {
       "category": "function",
-      "resourceName": "accountsRest",
+      "resourceName": "accountsAPI",
       "attributes": [
         "Name",
         "Arn"

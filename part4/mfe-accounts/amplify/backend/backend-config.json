@@ -6,7 +6,7 @@
     }
   },
   "auth": {
-    "mfeaccounts9f6c38e0": {
+    "mfeaccounts3c56588c": {
       "service": "Cognito",
       "serviceType": "imported",
       "providerPlugin": "awscloudformation",
@@ -15,37 +15,20 @@
     }
   },
   "function": {
-    "accountsRest": {
+    "accountsAPI": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "auth",
-          "resourceName": "mfeaccounts9f6c38e0",
-          "attributes": [
-            "UserPoolId"
-          ]
-        },
-        {
-          "category": "rds",
-          "resourceName": "accountsDatabase",
-          "attributes": [
-            "Arn",
-            "SecretArn"
-          ]
-        }
-      ]
+      "service": "Lambda"
     }
   },
   "api": {
-    "accountsRestApi": {
+    "accountsAPI": {
       "service": "API Gateway",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "accountsRest",
+          "resourceName": "accountsAPI",
           "attributes": [
             "Name",
             "Arn"

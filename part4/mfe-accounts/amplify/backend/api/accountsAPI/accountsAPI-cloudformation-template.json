@@ -8,15 +8,15 @@
         },
     
     
-          "functionaccountsRestName": {
+          "functionaccountsAPIName": {
             "Type": "String",
-            "Default": "functionaccountsRestName"
+            "Default": "functionaccountsAPIName"
           },
 
           
-          "functionaccountsRestArn": {
+          "functionaccountsAPIArn": {
             "Type": "String",
-            "Default": "functionaccountsRestArn"
+            "Default": "functionaccountsAPIArn"
           }
 
           
@@ -37,16 +37,16 @@
         
         
         
-      "accountsRestApi": {
+      "accountsAPI": {
         "Type": "AWS::ApiGateway::RestApi",
         "Properties": {
           "Description": "",
-          "Name": "accountsRestApi",
+          "Name": "accountsAPI",
           "Body": {
             "swagger": "2.0",
             "info": {
               "version": "2018-05-24T17:52:00Z",
-              "title": "accountsRestApi"
+              "title": "accountsAPI"
             },
             "host": {
                 "Fn::Join": [
@@ -174,7 +174,7 @@
                             
                             {
 
-                                "Ref": "functionaccountsRestArn"
+                                "Ref": "functionaccountsAPIArn"
                             },
                             
                             "/invocations"
@@ -279,7 +279,7 @@
                           
                           {
 
-                            "Ref": "functionaccountsRestArn"
+                            "Ref": "functionaccountsAPIArn"
                           },
                           
                           "/invocations"
@@ -336,12 +336,12 @@
       
         
 
-        "functionaccountsRestPermissionaccountsRestApi": {
+        "functionaccountsAPIPermissionaccountsAPI": {
             "Type": "AWS::Lambda::Permission",
             "Properties": {
                 "FunctionName": 
                     {
-                        "Ref":  "functionaccountsRestName"
+                        "Ref":  "functionaccountsAPIName"
                     },
                     
                     "Action": "lambda:InvokeFunction",
@@ -360,7 +360,7 @@
                             },
                             ":",
                             {
-                                "Ref": "accountsRestApi"
+                                "Ref": "accountsAPI"
                             },
                             "/*/*/*"
                         ]
@@ -371,7 +371,7 @@
         
         
 
-      "DeploymentAPIGWaccountsRestApi": {
+      "DeploymentAPIGWaccountsAPI": {
         "Type": "AWS::ApiGateway::Deployment",
         "Properties": {
           "Description": "The Development stage deployment of your API.",
@@ -385,7 +385,7 @@
             ]
           },
           "RestApiId": {
-            "Ref": "accountsRestApi"
+            "Ref": "accountsAPI"
           }
         }
       }
@@ -393,15 +393,15 @@
     "Outputs": {
         "RootUrl": {
             "Description": "Root URL of the API gateway",
-            "Value": {"Fn::Join": ["", ["https://", {"Ref": "accountsRestApi"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
+            "Value": {"Fn::Join": ["", ["https://", {"Ref": "accountsAPI"}, ".execute-api.", {"Ref": "AWS::Region"}, ".amazonaws.com/", {"Fn::If": ["ShouldNotCreateEnvResources","Prod", {"Ref": "env"} ]}]]}
         },
         "ApiName": {
           "Description": "API Friendly name",
-          "Value": "accountsRestApi"
+          "Value": "accountsAPI"
         },
         "ApiId": {
           "Description": "API ID (prefix of API URL)",
-          "Value": {"Ref": "accountsRestApi"}
+          "Value": {"Ref": "accountsAPI"}
         }
     }
   }
