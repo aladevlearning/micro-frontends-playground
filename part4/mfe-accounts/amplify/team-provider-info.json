@@ -15,7 +15,7 @@
       "function": {
         "accountsAPI": {
           "deploymentBucketName": "amplify-mfeaccounts-dev-90602-deployment",
-          "s3Key": "amplify-builds/accountsAPI-5241486b326278305a36-build.zip"
+          "s3Key": "amplify-builds/accountsAPI-7846576b397938493834-build.zip"
         }
       },
       "auth": {
