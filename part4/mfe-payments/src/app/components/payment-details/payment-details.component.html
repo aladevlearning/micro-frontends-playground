@@ -1,0 +1,39 @@
+<div class="details-modal">
+  <h1 mat-dialog-title class="title">Payment Details</h1>
+  <div mat-dialog-content>
+    <div class="table">
+      <div class="row">
+        <div class="header">From account</div>
+        <div class="value">{{ data.from_account }}</div>
+      </div>
+      <div class="row">
+        <div class="header">To account</div>
+        <div class="value">{{ data.to_account }}</div>
+      </div>
+      <div class="row">
+        <div class="header">Message</div>
+        <div class="value">{{ data.message }}</div>
+      </div>
+      <div class="row">
+        <div class="header">Amount</div>
+        <div class="value">{{ data.amount }}</div>
+      </div>
+      <div class="row">
+        <div class="header">Created At</div>
+        <div class="value">{{ data.createdAt | date: "shortDate" }}</div>
+      </div>
+      <div class="row">
+        <div class="header">Due</div>
+        <div class="value">{{ data.dueDate | date: "shortDate" }}</div>
+      </div>
+      <div class="row">
+        <div class="header">Currency</div>
+        <div class="value">{{ data.currency }}</div>
+      </div>
+      <div class="row">
+        <div class="header">Type</div>
+        <div class="value">{{ data.type }}</div>
+      </div>
+    </div>
+  </div>
+</div>

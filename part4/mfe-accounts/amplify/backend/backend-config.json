@@ -1,0 +1,57 @@
+{
+  "hosting": {
+    "S3AndCloudFront": {
+      "service": "S3AndCloudFront",
+      "providerPlugin": "awscloudformation"
+    }
+  },
+  "auth": {
+    "mfeaccounts3c56588c": {
+      "service": "Cognito",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  },
+  "function": {
+    "accountsAPI": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "rds",
+          "resourceName": "accountsCluster",
+          "attributes": [
+            "Arn",
+            "SecretArn"
+          ]
+        }
+      ]
+    }
+  },
+  "api": {
+    "accountsAPI": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "accountsAPI",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ]
+    }
+  },
+  "rds": {
+    "accountsCluster": {
+      "service": "RDSCluster",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": []
+    }
+  }
+}

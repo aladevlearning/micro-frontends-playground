@@ -1,0 +1,23 @@
+.details-modal {
+  .title {
+    font-weight: bold;
+  }
+  min-width: 16rem;
+
+  .table {
+    .row {
+      display: flex;
+      justify-content: space-between;
+      width: 16rem;
+
+      .header {
+        font-weight: bold;
+        padding: 0.2rem 0;
+      }
+
+      .value {
+        padding: 0.2rem 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "paths": [
+    {
+      "name": "/accounts",
+      "lambdaFunction": "accountsAPI",
+      "privacy": {
+        "private": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ]
+      },
+      "policyResourceName": "/accounts"
+    }
+  ],
+  "resourceName": "accountsAPI",
+  "apiName": "accountsAPI",
+  "functionArns": [
+    {
+      "lambdaFunction": "accountsAPI"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 0,
+    "authRoleName": "amplify-mfeaccounts-dev-90602-authRole",
+    "unAuthRoleName": "amplify-mfeaccounts-dev-90602-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "accountsAPI",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

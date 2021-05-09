@@ -1,0 +1,39 @@
+.payment-form {
+  width: 30rem;
+  .full-width {
+    width: 100%;
+  }
+  .amount-section {
+    width: 48%;
+    padding-right: 4%;
+  }
+
+  .due-section {
+    width: 48%;
+  }
+
+  .message-section {
+    height: 3rem;
+  }
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+  .submit-section {
+    padding-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .payment-form {
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 700px) and (orientation: landscape) {
+  .payment-form {
+    height: 18rem;
+  }
+}

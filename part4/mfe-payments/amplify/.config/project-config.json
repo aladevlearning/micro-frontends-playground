@@ -1,0 +1,17 @@
+{
+  "projectName": "mfepayments",
+  "version": "3.1",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "angular",
+    "config": {
+      "SourceDir": "src",
+      "DistributionDir": "dist/mfe-payments",
+      "BuildCommand": "npm run build",
+      "StartCommand": "npm run start"
+    }
+  },
+  "providers": [
+    "awscloudformation"
+  ]
+}
