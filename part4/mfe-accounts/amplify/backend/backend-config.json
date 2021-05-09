@@ -18,7 +18,17 @@
     "accountsAPI": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda"
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "rds",
+          "resourceName": "accountsCluster",
+          "attributes": [
+            "Arn",
+            "SecretArn"
+          ]
+        }
+      ]
     }
   },
   "api": {
@@ -38,7 +48,7 @@
     }
   },
   "rds": {
-    "accountsDatabase": {
+    "accountsCluster": {
       "service": "RDSCluster",
       "providerPlugin": "awscloudformation",
       "dependsOn": []
